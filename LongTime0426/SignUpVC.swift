@@ -39,16 +39,19 @@ class SignUpVC: UIViewController {
         let height = self.view.frame.size.height
         print("\(width) \(height)")
         
-        emailTF.borderStyle = .RoundedRect
-        emailTF.placeholder = "電子郵件"
+        emailTF.borderStyle = .None
+        emailTF.attributedPlaceholder =
+            NSAttributedString(string:"電子郵件",attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         self.view.addSubview(emailTF)
         
-        passwordTF.borderStyle = .RoundedRect
-        passwordTF.placeholder = "密碼"
+        passwordTF.borderStyle = .None
+        passwordTF.attributedPlaceholder =
+            NSAttributedString(string:"密碼",attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         self.view.addSubview(passwordTF)
         
-        passwordTF02.borderStyle = .RoundedRect
-        passwordTF02.placeholder = "密碼確認"
+        passwordTF02.borderStyle = .None
+        passwordTF02.attributedPlaceholder =
+            NSAttributedString(string:"密碼確認",attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         self.view.addSubview(passwordTF02)
         
         signUpButton.backgroundColor = UIColor.redColor()
