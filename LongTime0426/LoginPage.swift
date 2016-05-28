@@ -81,7 +81,9 @@ class LoginPage: UIViewController {
     {
         print("你按了登入")
         
-        
+        let controller = LoginVC()
+        controller.modalTransitionStyle = .CrossDissolve
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     func fbLogin(sender:UIButton)

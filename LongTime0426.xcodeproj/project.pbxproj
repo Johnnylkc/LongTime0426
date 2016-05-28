@@ -16,6 +16,7 @@
 		B267F03D1CCF8F8500F45633 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267F03C1CCF8F8500F45633 /* LoginPage.swift */; };
 		B267F0411CCF9D1F00F45633 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267F0401CCF9D1F00F45633 /* HomeCell.swift */; };
 		B27106601CF9C8BF008558D2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271065F1CF9C8BF008558D2 /* SignUpVC.swift */; };
+		B27106621CF9DEDB008558D2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27106611CF9DEDB008558D2 /* LoginVC.swift */; };
 		B288A95F1CF6D26B00DF79E1 /* OneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288A95E1CF6D26B00DF79E1 /* OneVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		B267F03C1CCF8F8500F45633 /* LoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		B267F0401CCF9D1F00F45633 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		B271065F1CF9C8BF008558D2 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		B27106611CF9DEDB008558D2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B288A95E1CF6D26B00DF79E1 /* OneVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 			children = (
 				B267F03C1CCF8F8500F45633 /* LoginPage.swift */,
 				B271065F1CF9C8BF008558D2 /* SignUpVC.swift */,
+				B27106611CF9DEDB008558D2 /* LoginVC.swift */,
 				B267F03A1CCF8CFA00F45633 /* HomeVC.swift */,
 				B288A95E1CF6D26B00DF79E1 /* OneVC.swift */,
 			);
@@ -239,6 +242,7 @@
 			files = (
 				B27106601CF9C8BF008558D2 /* SignUpVC.swift in Sources */,
 				B22E78B71CF8069C000296A2 /* OneCell.swift in Sources */,
+				B27106621CF9DEDB008558D2 /* LoginVC.swift in Sources */,
 				B267F0291CCF8CCB00F45633 /* AppDelegate.swift in Sources */,
 				B288A95F1CF6D26B00DF79E1 /* OneVC.swift in Sources */,
 				B267F03D1CCF8F8500F45633 /* LoginPage.swift in Sources */,
