@@ -14,6 +14,7 @@ class LoginVC: UIViewController {
     let passwordTF = UITextField()
     let loginButton = UIButton()
     
+    
     let lineView01 = UIView()
     let lineView02 = UIView()
     

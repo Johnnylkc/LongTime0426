@@ -14,6 +14,7 @@ class SignUpVC: UIViewController {
     let passwordTF = UITextField()
     let passwordTF02 = UITextField()
     let signUpButton = UIButton()
+    let toLoginButton = UIButton()
     
     let lineView01 = UIView()
     let lineView02 = UIView()
@@ -38,16 +39,23 @@ class SignUpVC: UIViewController {
         emailTF.borderStyle = .None
         emailTF.attributedPlaceholder =
             NSAttributedString(string:"電子郵件",attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        emailTF.textColor = UIColor.whiteColor()
+        emailTF.clearButtonMode = .WhileEditing
+        
         self.view.addSubview(emailTF)
         
         passwordTF.borderStyle = .None
         passwordTF.attributedPlaceholder =
             NSAttributedString(string:"密碼",attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        passwordTF.textColor = UIColor.whiteColor()
+        passwordTF.secureTextEntry = true
         self.view.addSubview(passwordTF)
         
         passwordTF02.borderStyle = .None
         passwordTF02.attributedPlaceholder =
             NSAttributedString(string:"密碼確認",attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        passwordTF02.textColor = UIColor.whiteColor()
+        passwordTF02.secureTextEntry = true
         self.view.addSubview(passwordTF02)
         
         signUpButton.backgroundColor = UIColor.whiteColor()
@@ -67,6 +75,12 @@ class SignUpVC: UIViewController {
         lineView03.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(lineView03)
         
+        toLoginButton.backgroundColor = UIColor.clearColor()
+        toLoginButton.setTitle("我要登入", forState: .Normal)
+        toLoginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        
+        self.view.addSubview(toLoginButton)
+        
     }
 
     
@@ -75,6 +89,10 @@ class SignUpVC: UIViewController {
         print("我要註冊了！！")
     }
     
+    func cancel(sender:UIButton)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     func autoLayout()
     {
@@ -82,12 +100,13 @@ class SignUpVC: UIViewController {
         passwordTF.translatesAutoresizingMaskIntoConstraints = (false)
         passwordTF02.translatesAutoresizingMaskIntoConstraints = (false)
         signUpButton.translatesAutoresizingMaskIntoConstraints = (false)
+        toLoginButton.translatesAutoresizingMaskIntoConstraints = (false)
         
         lineView01.translatesAutoresizingMaskIntoConstraints = (false)
         lineView02.translatesAutoresizingMaskIntoConstraints = (false)
         lineView03.translatesAutoresizingMaskIntoConstraints = (false)
         
-        let dic = ["emailTF":emailTF,"passwordTF":passwordTF,"passwordTF02":passwordTF02,"signUpButton":signUpButton,"lineView01":lineView01,"lineView02":lineView02,"lineView03":lineView03]
+        let dic = ["emailTF":emailTF,"passwordTF":passwordTF,"passwordTF02":passwordTF02,"signUpButton":signUpButton,"lineView01":lineView01,"lineView02":lineView02,"lineView03":lineView03,"toLoginButton":toLoginButton]
         
         ////emailTF
         let emailTF_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-50-[emailTF]-50-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
@@ -137,6 +156,13 @@ class SignUpVC: UIViewController {
         
         let lineView03_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[passwordTF02]-1-[lineView03(2)]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
         self.view.addConstraints(lineView03_V)
+        
+        ////toLoginButton
+        let toLoginButton_H = NSLayoutConstraint.constraintsWithVisualFormat("H:[toLoginButton(100)]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        self.view.addConstraints(toLoginButton_H)
+        
+        let toLoginButton_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[signUpButton]-30-[toLoginButton]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        self.view.addConstraints(toLoginButton_V)
         
         
     }
