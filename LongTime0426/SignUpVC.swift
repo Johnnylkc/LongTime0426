@@ -78,6 +78,7 @@ class SignUpVC: UIViewController {
         toLoginButton.backgroundColor = UIColor.clearColor()
         toLoginButton.setTitle("我要登入", forState: .Normal)
         toLoginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        toLoginButton.addTarget(self, action: #selector(SignUpVC.toLoginPage(_:)), forControlEvents: .TouchUpInside)
         
         self.view.addSubview(toLoginButton)
         
@@ -89,9 +90,11 @@ class SignUpVC: UIViewController {
         print("我要註冊了！！")
     }
     
-    func cancel(sender:UIButton)
+    func toLoginPage(sender:UIButton)
     {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        let controller = LoginVC()
+        controller.modalTransitionStyle = .CrossDissolve
+        self.presentViewController(controller, animated: true, completion: nil)
     }
 
     func autoLayout()
