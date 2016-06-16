@@ -21,10 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         
+        
         let onePage = LoginPage()
-        
-        
-        
         
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

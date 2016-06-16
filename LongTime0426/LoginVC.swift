@@ -14,6 +14,7 @@ class LoginVC: UIViewController {
     let passwordTF = UITextField()
     let loginButton = UIButton()
     let toSignUpButton = UIButton()
+    let caencelButton = UIButton()
     
     
     let lineView01 = UIView()
@@ -64,11 +65,20 @@ class LoginVC: UIViewController {
         toSignUpButton.addTarget(self, action: #selector(LoginVC.toSignUpPage(_:)), forControlEvents: .TouchUpInside)
         self.view.addSubview(toSignUpButton)
         
+        caencelButton.setBackgroundImage(UIImage(named: "cancel"), forState: .Normal)
+        caencelButton.addTarget(self, action: #selector(LoginVC.cancel(_:)), forControlEvents: .TouchUpInside)
+        self.view.addSubview(caencelButton)
+        
     }
     
     func login(sender:UIButton)
     {
         print("我要登入")
+        
+        let controller = HomeVC()
+        let nav = UINavigationController(rootViewController: controller)
+        controller.modalTransitionStyle = .CrossDissolve
+        self.presentViewController(nav, animated: true, completion: nil)
     }
     
     func toSignUpPage(sender:UIButton)
@@ -76,6 +86,11 @@ class LoginVC: UIViewController {
         let controller = SignUpVC()
         controller.modalTransitionStyle = .CrossDissolve
         self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func cancel(sender:UIButton)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -86,11 +101,12 @@ class LoginVC: UIViewController {
         passwordTF.translatesAutoresizingMaskIntoConstraints = (false)
         loginButton.translatesAutoresizingMaskIntoConstraints = (false)
         toSignUpButton.translatesAutoresizingMaskIntoConstraints = (false)
+        caencelButton.translatesAutoresizingMaskIntoConstraints = (false)
         
         lineView01.translatesAutoresizingMaskIntoConstraints = (false)
         lineView02.translatesAutoresizingMaskIntoConstraints = (false)
         
-        let dic = ["emailTF":emailTF,"passwordTF":passwordTF,"loginButton":loginButton,"lineView01":lineView01,"lineView02":lineView02,"toSignUpButton":toSignUpButton]
+        let dic = ["emailTF":emailTF,"passwordTF":passwordTF,"loginButton":loginButton,"lineView01":lineView01,"lineView02":lineView02,"toSignUpButton":toSignUpButton,"caencelButton":caencelButton]
         
         ////emailTF
         let emailTF_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-50-[emailTF]-50-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
@@ -135,6 +151,12 @@ class LoginVC: UIViewController {
         let toSignUpButton_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[loginButton]-5-[toSignUpButton(30)]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
         self.view.addConstraints(toSignUpButton_V)
         
+        ////caencelButton
+        let caencelButton_H = NSLayoutConstraint.constraintsWithVisualFormat("[caencelButton(30)]-50-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        self.view.addConstraints(caencelButton_H)
+        
+        let caencelButton_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[caencelButton(30)]-10-[emailTF]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        self.view.addConstraints(caencelButton_V)
         
     }
     

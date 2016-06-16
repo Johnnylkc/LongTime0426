@@ -71,7 +71,6 @@ class LoginPage: UIViewController {
         print("你按了註冊")
         
         let controller = SignUpVC()
-        controller.modalTransitionStyle = .CrossDissolve
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
@@ -82,7 +81,6 @@ class LoginPage: UIViewController {
         print("你按了登入")
         
         let controller = LoginVC()
-        controller.modalTransitionStyle = .CrossDissolve
         self.presentViewController(controller, animated: true, completion: nil)
     }
     

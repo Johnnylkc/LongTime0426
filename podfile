@@ -7,6 +7,6 @@ target 'LongTime0426' do
 
 pod 'Alamofire'
 pod 'AlamofireImage'
-
+pod 'Firebase'
 end
 

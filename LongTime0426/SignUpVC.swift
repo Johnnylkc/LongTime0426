@@ -15,6 +15,7 @@ class SignUpVC: UIViewController {
     let passwordTF02 = UITextField()
     let signUpButton = UIButton()
     let toLoginButton = UIButton()
+    let cancelButton = UIButton()
     
     let lineView01 = UIView()
     let lineView02 = UIView()
@@ -79,8 +80,11 @@ class SignUpVC: UIViewController {
         toLoginButton.setTitle("我要登入", forState: .Normal)
         toLoginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         toLoginButton.addTarget(self, action: #selector(SignUpVC.toLoginPage(_:)), forControlEvents: .TouchUpInside)
-        
         self.view.addSubview(toLoginButton)
+        
+        cancelButton.setBackgroundImage(UIImage(named: "cancel"), forState: .Normal)
+        cancelButton.addTarget(self, action: #selector(SignUpVC.cancel(_:)), forControlEvents: .TouchUpInside)
+        self.view.addSubview(cancelButton)
         
     }
 
@@ -96,6 +100,13 @@ class SignUpVC: UIViewController {
         controller.modalTransitionStyle = .CrossDissolve
         self.presentViewController(controller, animated: true, completion: nil)
     }
+    
+    func cancel(sender:UIButton)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
 
     func autoLayout()
     {
@@ -104,12 +115,13 @@ class SignUpVC: UIViewController {
         passwordTF02.translatesAutoresizingMaskIntoConstraints = (false)
         signUpButton.translatesAutoresizingMaskIntoConstraints = (false)
         toLoginButton.translatesAutoresizingMaskIntoConstraints = (false)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = (false)
         
         lineView01.translatesAutoresizingMaskIntoConstraints = (false)
         lineView02.translatesAutoresizingMaskIntoConstraints = (false)
         lineView03.translatesAutoresizingMaskIntoConstraints = (false)
         
-        let dic = ["emailTF":emailTF,"passwordTF":passwordTF,"passwordTF02":passwordTF02,"signUpButton":signUpButton,"lineView01":lineView01,"lineView02":lineView02,"lineView03":lineView03,"toLoginButton":toLoginButton]
+        let dic = ["emailTF":emailTF,"passwordTF":passwordTF,"passwordTF02":passwordTF02,"signUpButton":signUpButton,"lineView01":lineView01,"lineView02":lineView02,"lineView03":lineView03,"toLoginButton":toLoginButton,"cancelButton":cancelButton]
         
         ////emailTF
         let emailTF_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-50-[emailTF]-50-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
@@ -161,11 +173,19 @@ class SignUpVC: UIViewController {
         self.view.addConstraints(lineView03_V)
         
         ////toLoginButton
-        let toLoginButton_H = NSLayoutConstraint.constraintsWithVisualFormat("H:[toLoginButton(100)]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        let toLoginButton_H = NSLayoutConstraint.constraintsWithVisualFormat("H:[toLoginButton(100)]-50-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
         self.view.addConstraints(toLoginButton_H)
         
-        let toLoginButton_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[signUpButton]-30-[toLoginButton]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        let toLoginButton_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[signUpButton]-5-[toLoginButton]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
         self.view.addConstraints(toLoginButton_V)
+        
+        ////cancelButton
+        let cancelButton_H = NSLayoutConstraint.constraintsWithVisualFormat("H:[cancelButton(30)]-50-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        self.view.addConstraints(cancelButton_H)
+        
+        let cancelButton_V = NSLayoutConstraint.constraintsWithVisualFormat("V:[cancelButton(30)]-10-[emailTF]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: dic)
+        self.view.addConstraints(cancelButton_V)
+        
         
         
     }
